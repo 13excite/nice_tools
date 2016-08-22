@@ -1,0 +1,3 @@
+
+#show vm stat with current time
+vmstat 2| perl -ne 'print scalar localtime(), " ", $_;'
