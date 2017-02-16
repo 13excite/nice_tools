@@ -1,1 +1,0 @@
-for DISK in `df|grep sd|awk {'print $1'}`; do MOUNT_POINT=$( df|grep $DISK|awk {'print $6'} ); UUID=$( blkid $DISK| awk {'print $2'}|sed 's/\"//g'); echo -e "$UUID\t$MOUNT_POINT\text4\tdefaults,noatime\t0\t0">>/etc/fstab;done
