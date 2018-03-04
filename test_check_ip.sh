@@ -8,7 +8,7 @@ DNS_IP=$( host `hostname|sed -E 's/(\.(i|q))$/\.e/'`|awk {'print $4'} )
 if [[ "$DNS_IP" != "$IP_ON_HOST" ]]; then
         echo "DNS PTR record not equal ip on host "
         exit 1;
-elif [[ $GOOD_OCTET -eq $IP_OCTET  ]]; then
+elif [[ $GOOD_OCTET -ne $IP_OCTET  ]]; then
         echo "Bad third ip octet, not equal jun number"
         exit 1;
 else
